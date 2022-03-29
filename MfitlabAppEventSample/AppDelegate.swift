@@ -14,23 +14,23 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initFacebookSDK(){
-        FBSDKCoreKit.Settings.shared.isAutoLogAppEventsEnabled = true
-        FBSDKCoreKit.Settings.shared.isAdvertiserIDCollectionEnabled = true
+        Settings.shared.isAutoLogAppEventsEnabled = true
+        Settings.shared.isAdvertiserIDCollectionEnabled = true
         ApplicationDelegate.initialize()
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        FBSDKCoreKit.Settings.shared.isAutoLogAppEventsEnabled = true
-        FBSDKCoreKit.Settings.shared.enableLoggingBehavior(.appEvents)
-        FBSDKCoreKit.Settings.shared.enableLoggingBehavior(.networkRequests)
+        Settings.shared.isAutoLogAppEventsEnabled = true
+        Settings.shared.enableLoggingBehavior(.appEvents)
+        Settings.shared.enableLoggingBehavior(.networkRequests)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if #available(iOS 14, *) {
                 ATTrackingManager.requestTrackingAuthorization { status in
                     switch status {
                     case .authorized:           // 허용됨
-                        FBSDKCoreKit.Settings.shared.isAdvertiserTrackingEnabled = true
+                        Settings.shared.isAdvertiserTrackingEnabled = true
                         print("Authorized")
                     case .denied:               // 거부됨
                         print("Denied")
