@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         Settings.shared.isAutoLogAppEventsEnabled = true
+        // NOTE: 디버깅 목적으로 AppEvent 발생 건과 Network Request 발생을 로깅한다.
         Settings.shared.enableLoggingBehavior(.appEvents)
         Settings.shared.enableLoggingBehavior(.networkRequests)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
