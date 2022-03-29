@@ -6,14 +6,51 @@
 //
 
 import UIKit
+import AppTrackingTransparency
+
+import FBSDKCoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    func initFacebookSDK(){
+        FBSDKCoreKit.Settings.shared.isAutoLogAppEventsEnabled = true
+        FBSDKCoreKit.Settings.shared.isAdvertiserIDCollectionEnabled = true
+        ApplicationDelegate.initialize()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        FBSDKCoreKit.Settings.shared.isAutoLogAppEventsEnabled = true
+        FBSDKCoreKit.Settings.shared.enableLoggingBehavior(.appEvents)
+        FBSDKCoreKit.Settings.shared.enableLoggingBehavior(.networkRequests)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if #available(iOS 14, *) {
+                ATTrackingManager.requestTrackingAuthorization { status in
+                    switch status {
+                    case .authorized:           // 허용됨
+                        FBSDKCoreKit.Settings.shared.isAdvertiserTrackingEnabled = true
+                        print("Authorized")
+                    case .denied:               // 거부됨
+                        print("Denied")
+                    case .notDetermined:        // 결정되지 않음
+                        print("Not Determined")
+                    case .restricted:           // 제한됨
+                        print("Restricted")
+                    @unknown default:           // 알려지지 않음
+                        print("Unknow")
+                    }
+                }
+                self.initFacebookSDK();
+            } else {
+                self.initFacebookSDK();
+            }
+        }
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
         return true
     }
 

@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
-</dict>
+   <dict>
+      <key>NSUserTrackingUsageDescription</key>
+      <string>마켓핏랩은 최적화된 광고를 제공하기 위해 광고활동정보를 수집합니다</string>
+      <key>UIApplicationSceneManifest</key>
+      <dict>
+         <key>UIApplicationSupportsMultipleScenes</key>
+         <false />
+         <key>UISceneConfigurations</key>
+         <dict>
+            <key>UIWindowSceneSessionRoleApplication</key>
+            <array>
+               <dict>
+                  <key>UISceneConfigurationName</key>
+                  <string>Default Configuration</string>
+                  <key>UISceneDelegateClassName</key>
+                  <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+                  <key>UISceneStoryboardFile</key>
+                  <string>Main</string>
+               </dict>
+            </array>
+         </dict>
+      </dict>
+      <key>CFBundleURLTypes</key>
+      <array>
+         <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+               <string>fb$(FACEBOOK_APP_ID)</string>
+            </array>
+         </dict>
+      </array>
+	  <key>FacebookAutoLogAppEventsEnabled</key>
+	  <true/>
+     <key>FacebookAdvertiserIDCollectionEnabled</key>
+     <true/>
+      <key>FacebookAppID</key>
+      <string>$(FACEBOOK_APP_ID)</string>
+	  <key>FacebookClientToken</key>
+	  <string>$(FACEBOOK_CLIENT_TOKEN)</string>
+      <key>FacebookDisplayName</key>
+      <string>MfitlabAppEventSample</string>
+   </dict>
 </plist>
