@@ -5,21 +5,25 @@ PODS:
     - FBAEMKit (= 13.1.0)
     - FBSDKCoreKit_Basics (= 13.1.0)
   - FBSDKCoreKit_Basics (13.1.0)
+  - Mixpanel (5.0.1)
 
 DEPENDENCIES:
   - FBSDKCoreKit
+  - Mixpanel
 
 SPEC REPOS:
   trunk:
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
+    - Mixpanel
 
 SPEC CHECKSUMS:
   FBAEMKit: 9ce89760a23f03ffecd907c8e1f3201160f2dcc7
   FBSDKCoreKit: eff97dea778dbe6cc4498959cffb619c75675102
   FBSDKCoreKit_Basics: c151609a1cf6976a5958febcf0043266a8fd5151
+  Mixpanel: f9c7fe057578335bf82989def1aa974d69df01ac
 
-PODFILE CHECKSUM: d8a34bf8e5af0b21c82d9c3d7d3db937ba47b1c4
+PODFILE CHECKSUM: 2da7997beb82bb67456e35cf47862822cb388631
 
 COCOAPODS: 1.11.2

@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import AdSupport
 import AppTrackingTransparency
 
 import FBSDKCoreKit
+import Mixpanel
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Settings.shared.isAdvertiserIDCollectionEnabled = true
         ApplicationDelegate.initialize()
     }
+    
+    func initMixpanel() {
+        Mixpanel.sharedInstance(withToken: "<MIXPANEL_TOKEN>", trackAutomaticEvents: true);
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.initMixpanel();
         // Override point for customization after application launch.
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         Settings.shared.isAutoLogAppEventsEnabled = true

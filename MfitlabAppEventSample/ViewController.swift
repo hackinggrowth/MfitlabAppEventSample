@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Mixpanel
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let instance = Mixpanel.sharedInstance()
+        instance!.track("viewViewController")
     }
-
-
 }
 

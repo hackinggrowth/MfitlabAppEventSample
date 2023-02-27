@@ -7,5 +7,6 @@ target 'MfitlabAppEventSample' do
 
   # Pods for MfitlabAppEventSample
   pod 'FBSDKCoreKit'
+  pod 'Mixpanel'
 
 end
